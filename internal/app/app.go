@@ -40,6 +40,7 @@ func Run(config *configs.Config) {
 	}
 
 	reader := bufio.NewReader(os.Stdin)
+
 	for {
 		if cli.UserInfo.AccessToken != "" {
 			terminal := fmt.Sprintf("%s@%s>>> ", cli.UserInfo.Login, host)
