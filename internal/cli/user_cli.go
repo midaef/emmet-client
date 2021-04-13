@@ -64,3 +64,24 @@ func (c *User) CreateUser() {
 	message := fmt.Sprintf("%s", resp.Message)
 	fmt.Println("\n" + tm.Bold(message) + "\n")
 }
+
+func (c *User) DeleteUser() {
+	fields := []string{"User login"}
+	fieldsMap := Reader(fields)
+
+	deleteUser := &api.DeleteUserByAccessTokenRequest{
+		AccessToken: c.accessToken,
+		Login: fieldsMap[fields[0]],
+	}
+
+	resp, err := c.clients.UserClient.DeleteUserByAccessToken(context.Background(), deleteUser)
+	if err != nil {
+		error := fmt.Sprintf("%v\n", err)
+		fmt.Println("\n" + tm.Color(tm.Bold(error), tm.RED) + "\n")
+
+		return
+	}
+
+	message := fmt.Sprintf("%s", resp.Message)
+	fmt.Println("\n" + tm.Bold(message) + "\n")
+}
