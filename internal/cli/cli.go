@@ -100,7 +100,7 @@ func (c *CLI) CheckCommand(command string) {
 
 func (c *CLI) help() {
 	fmt.Printf("\n" + tm.Bold("Commands") + "\n")
-	
+
 	commands := []string{"create user", "create role", "create value", "delete user", "delete role", "delete value", "get value"}
 	info := []string{"new user with role", "new role with permissions", "new value with role",
 		"user will be deleted", "role will be deleted", "value will be deleted", "get value with key and permissions"}
